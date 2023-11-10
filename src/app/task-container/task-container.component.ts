@@ -1,21 +1,17 @@
-import {Component, inject} from '@angular/core';
-import {TaskService} from "../task.service";
-import {TaskBlockComponent} from "../task-block/task-block.component";
-import {NgFor} from "@angular/common";
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { TaskService } from '../task.service';
+import { TaskBlockComponent } from '../task-block/task-block.component';
+import { AsyncPipe, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-task-container',
-  standalone: true,
   templateUrl: './task-container.component.html',
-  imports: [
-    TaskBlockComponent,
-    NgFor
-  ],
-  styleUrls: ['./task-container.component.scss']
+  styleUrls: ['./task-container.component.scss'],
+  standalone: true,
+  imports: [TaskBlockComponent, NgFor, AsyncPipe],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskContainerComponent {
-  // values:string[] = [];
-  private taskService = inject(TaskService);
-
-  values = this.taskService.values;
+  private _taskService = inject(TaskService);
+  public values = this._taskService.tasks$;
 }

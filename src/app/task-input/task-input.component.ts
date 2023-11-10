@@ -1,21 +1,21 @@
-import {Component, inject} from '@angular/core';
-import {TaskService} from "../task.service";
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { TaskService } from '../task.service';
+
 @Component({
   selector: 'app-task-input',
-  standalone: true,
   templateUrl: './task-input.component.html',
-  styleUrls: ['./task-input.component.scss']
+  styleUrls: ['./task-input.component.scss'],
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskInputComponent {
-
-  // values:string[] = [];
   private taskService = inject(TaskService);
-  pushValue(value: string){
-    this.taskService.values.push(value);
-    // this.values.push(value);
+
+  pushValue(task: string) {
+    this.taskService.addTask(task);
   }
 
-  log(){
-    console.log(this.taskService.values);
+  log() {
+    this.taskService.tasks$.subscribe((tasks) => console.log(tasks));
   }
 }

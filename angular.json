@@ -8,13 +8,15 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
+          "changeDetection": "OnPush",
           "skipTests": true
         },
         "@schematics/angular:service": {
           "skipTests": true
         },
         "@schematics/angular:directive": {
-          "skipTests": true  }
+          "skipTests": true
+        }
       },
       "root": "",
       "sourceRoot": "src",
@@ -71,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-todo-list:build:production"
+              "buildTarget": "angular-todo-list:build:production"
             },
             "development": {
-              "browserTarget": "angular-todo-list:build:development"
+              "buildTarget": "angular-todo-list:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-todo-list:build"
+            "buildTarget": "angular-todo-list:build"
           }
         },
         "test": {
@@ -103,8 +105,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

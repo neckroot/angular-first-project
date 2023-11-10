@@ -1,2 +1,2 @@
-<p>task-container works!</p>
-<app-task-block *ngFor="let value of values" [task]="value"></app-task-block>
+<app-task-block *ngFor="let value of values | async; let id=index" [id]="id" [task]="value"></app-task-block>
+
