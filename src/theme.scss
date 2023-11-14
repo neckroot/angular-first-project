@@ -1,0 +1,37 @@
+$primary-color: white;
+$primary-font-color: black;
+$sub-font-color: #707070;
+$accent-color: #3a88fe;
+$sub-color: #ebebeb;
+$success-bg: #cce8b5;
+$success-color: #00dd38;
+$error-color: #c40000;
+
+$size: 3.25rem;
+
+%button-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: $size;
+  width: $size;
+  line-height: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  .fi {
+    font-size: 1.25rem;
+  }
+}
+
+%navigate-button {
+  @extend %button-style;
+  width: 100%;
+  flex-shrink: 0;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-image: linear-gradient(to right, #ffffff, #ebebeb, #ffffff) 1;
+  margin: 5px 0;
+  color: $error-color;
+}

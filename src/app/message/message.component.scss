@@ -1,0 +1,22 @@
+@import 'src/theme';
+
+.message {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  min-height: $size;
+  padding: 5px;
+  border: 2px solid ;
+  border-radius: 5px;
+  word-break: break-all;
+}
+
+.error {
+  border-color: $error-color;
+  color: $error-color
+}
+
+.success {
+  border-color: $success-color;
+  color: $success-color;
+}

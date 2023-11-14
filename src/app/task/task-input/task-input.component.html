@@ -1,0 +1,13 @@
+  <input
+    class="task-input__input"
+    type="text"
+    placeholder="Add new task:"
+    (keydown.enter)="handleInput(input)"
+    #input />
+
+  <button
+    class="task-input__button"
+    type="button"
+    (click)="handleInput(input)">
+    <i class="fi fi-br-plus"></i>
+  </button>

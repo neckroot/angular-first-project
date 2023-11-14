@@ -1,0 +1,17 @@
+@import "src/theme";
+
+:host{
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow-y: auto;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+  border-image: linear-gradient(to right, $primary-color 20%, $accent-color, $primary-color 80%) 1;
+  padding: 1rem 0;
+
+  :not(:last-child) {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, $primary-color 10%, $sub-color, $primary-color 90%) 1;
+  }
+}

@@ -1,0 +1,37 @@
+@import 'src/theme';
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+  overflow-y: auto;
+}
+
+.interface {
+  display: flex;
+  color: $primary-font-color;
+
+  label {
+    display: flex;
+    flex: auto;
+    height: $size;
+    align-items: center;
+  }
+
+  > button {
+    @extend %button-style;
+    border-left: 1px solid $sub-color;
+  }
+
+  &__restore-button {
+    color: $success-color;
+  }
+
+  &__clean-button {
+    color: $error-color;
+  }
+}
+
+.basket-button {
+  @extend %navigate-button;
+}

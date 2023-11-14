@@ -1,0 +1,45 @@
+@import 'src/theme';
+
+:host {
+  display: flex;
+  margin: 5px 0;
+  border-radius: 5px;
+
+  > :not(:last-child) {
+    border-right: 1px solid $sub-color!important;
+  }
+
+  :not(:nth-child(2)) {
+    flex-shrink: 0;
+    height: auto;
+  }
+}
+
+.task-block {
+  &__shifter {
+    @extend %button-style;
+    color: $sub-color;
+  }
+
+  &__task {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin: 0 5px;
+    word-wrap: anywhere;
+    color: $primary-font-color;
+    min-height: $size;
+  }
+
+  &__check {
+    @extend %button-style;
+    color: $sub-color;
+  }
+
+  &__del-button {
+    @extend %button-style;
+    color: $error-color;
+  }
+}
+
+

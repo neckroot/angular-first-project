@@ -1,0 +1,18 @@
+@import "src/theme";
+
+:host{
+  display: flex;
+  align-items: center;
+}
+
+label {
+  display: block;
+  line-height: $size;
+  vertical-align: center;
+  flex: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: $sub-font-color;
+}
+
