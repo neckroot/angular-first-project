@@ -1,19 +1,37 @@
 <h1 class="header">Basket</h1>
+
 <app-basket-container></app-basket-container>
 
 <div class="interface">
-  <input type="checkbox" id="check-all">
+
+  <input
+    (change)="changeStatus($event)"
+    [checked]='status | async'
+    type="checkbox"
+    id="check-all"
+  >
   <label for="check-all">Select all</label>
 
-  <button type="button" class="interface__restore-button">
+  <button
+    type="button"
+    class="interface__restore-button"
+  >
     <i class="fi fi-br-rotate-left"></i>
   </button>
 
-  <button type="button" class="interface__clean-button">
+  <button
+    type="button"
+    class="interface__clean-button"
+  >
     <i class="fi fi-br-trash"></i>
   </button>
+
 </div>
 
-<button type="button" (click)="goBack()" class="basket-button">
+<button
+  (click)="goBack()"
+  type="button"
+  class="basket-button"
+>
   <i class="fi fi-br-cross"></i>
 </button>

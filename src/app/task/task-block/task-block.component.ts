@@ -21,6 +21,5 @@ export class TaskBlockComponent {
 
   deleteTask() {
     this._taskService.deleteTaskById(this.id);
-    console.log(this.id);
   }
 }

@@ -1,2 +1,12 @@
-<input type="checkbox" id='check{{i}}'>
-<label for='check{{i}}'>{{task}}</label>
+<input
+  (change)="onChange($event)"
+  [checked]="status | async"
+  type="checkbox"
+  id='check{{i}}'
+>
+
+<label
+  for='check{{i}}'
+>
+  {{task}}
+</label>

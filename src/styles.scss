@@ -53,8 +53,8 @@ body {
 }
 
 input[type=checkbox] {
-  height: 1rem;
-  width: 1rem;
+  min-height: 1rem;
+  min-width: 1rem;
   padding: calc($size / 2 - 0.5rem);
   margin: calc($size / 2 - 0.5rem);
 }
