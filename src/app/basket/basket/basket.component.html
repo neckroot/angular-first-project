@@ -6,13 +6,14 @@
 
   <input
     (change)="changeStatus($event)"
-    [checked]='status | async'
+    [checked]='status$ | async'
     type="checkbox"
     id="check-all"
   >
   <label for="check-all">Select all</label>
 
   <button
+    (click)="restoreTasks()"
     type="button"
     class="interface__restore-button"
   >
@@ -20,6 +21,7 @@
   </button>
 
   <button
+    (click)="removeTasks()"
     type="button"
     class="interface__clean-button"
   >

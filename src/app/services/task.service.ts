@@ -5,30 +5,37 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class TaskService {
-  private _taskList$ = new BehaviorSubject<string[]>([
+  public tasks$ = new BehaviorSubject<string[]>([
     'fsggbdfgdfgdggdgdgdgddsfjkbdsnbkdsnbdsklbnsblnsdbnbkjldsnbdkjbsdnbsdb',
     'vsbb',
   ]);
-  private _basket$ = new BehaviorSubject<string[]>([
+  public basket$ = new BehaviorSubject<string[]>([
     'fsggbdfgdfgdggdgdgdgddsfjkbdsnbkdsnbdsklbnsblnsdbnbkjldsnbdkjbsdnbsdb',
     'vsbb',
   ]);
 
-  get tasks$() {
-    return this._taskList$;
+  public addTask(task: string) {
+    this.tasks$.next([...this.tasks$.value, task]);
   }
 
-  get basket$() {
-    return this._basket$;
+  public deleteTaskById(id: number) {
+    this.basket$.next(
+      this.basket$.value.concat(this.tasks$.value.splice(id, 1)),
+    );
   }
 
-  addTask(task: string) {
-    this._taskList$.next([...this._taskList$.value, task]);
+  public remove(id: number) {
+    const values = this.basket$.value;
+
+    values.splice(id, 1);
+    this.basket$.next(values);
   }
 
-  deleteTaskById(id: number) {
-    this._basket$.next(
-      this._basket$.value.concat(this._taskList$.value.splice(id, 1)),
+  public restore(id: number) {
+    this.tasks$.next(
+      this.tasks$.value.concat(
+        this.basket$.value.splice(this.basket$.value.length - id - 1, 1),
+      ),
     );
   }
 }

@@ -7,27 +7,32 @@ import { BehaviorSubject } from 'rxjs';
 export class CheckboxService {
   public statement$ = new BehaviorSubject<boolean[]>([]);
 
-  initState(state: boolean) {
+  public initState(state: boolean) {
     this.statement$.next([...this.statement$.value, state]);
   }
 
-  changeState(id: number, state: boolean) {
+  public get trueIds() {
+    return this.statement$.value.reduce(
+      (arr: Array<number>, v, i) => (v && arr.unshift(i), arr),
+      [],
+    );
+  }
+
+  public changeState(id: number, state: boolean) {
     const values = this.statement$.value;
 
     values.splice(id, 1, state);
-
     this.statement$.next(values);
   }
 
-  remove(id: number) {
+  public remove(id: number) {
     const values = this.statement$.value;
 
     values.splice(id, 1);
-
     this.statement$.next(values);
   }
 
-  removeAll() {
+  public removeAll() {
     this.statement$.next([]);
   }
 }

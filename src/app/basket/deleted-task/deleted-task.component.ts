@@ -23,7 +23,7 @@ export class DeletedTaskComponent implements OnInit {
 
   private checkboxService = inject(CheckboxService);
 
-  public status = this.checkboxService.statement$.pipe(
+  public status$ = this.checkboxService.statement$.pipe(
     map((value) => value[this.i]),
   );
 
