@@ -9,7 +9,7 @@ const routeConfig: Routes = [
   },
   {
     path: 'basket',
-    loadComponent: () => import('../basket/basket/basket.component'),
+    loadComponent: () => import('../basket/basket.component'),
     title: 'Basket',
   },
 ];

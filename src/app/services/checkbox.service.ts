@@ -35,4 +35,8 @@ export class CheckboxService {
   public removeAll() {
     this.statement$.next([]);
   }
+
+  public get anyChecked() {
+    return this.statement$.value.includes(true);
+  }
 }

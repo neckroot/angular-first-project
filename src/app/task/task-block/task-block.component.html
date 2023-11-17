@@ -2,7 +2,7 @@
   <i class="fi fi-br-arrows-h-copy"></i>
 </div>
 
-<div class="task-block__task">{{task}}</div>
+<div class="task-block__task">{{(task[0] | uppercase ) + task.slice(1)}}</div>
 
 <button type="button" class="task-block__check">
   <i class="fi fi-br-checkbox"></i>

@@ -1,12 +1,17 @@
 @import 'src/theme';
 
+:host{
+  min-height: $size;
+}
+
 .message {
   display: flex;
   align-items: center;
+  justify-content: center;
   text-align: center;
   min-height: $size;
   padding: 5px;
-  border: 2px solid ;
+  border: 2px solid transparent;
   border-radius: 5px;
   word-break: break-all;
 }
@@ -20,3 +25,4 @@
   border-color: $success-color;
   color: $success-color;
 }
+

@@ -38,4 +38,10 @@ export class TaskService {
       ),
     );
   }
+
+  public isUnique(task: string) {
+    return !(
+      this.basket$.value.includes(task) || this.tasks$.value.includes(task)
+    );
+  }
 }

@@ -1,1 +1,6 @@
-<div class="message"></div>
+<div *ngIf="(message$ | async) as message"
+  [ngClass]="message.type"
+  class="message"
+>
+  {{message.message}}
+</div>
